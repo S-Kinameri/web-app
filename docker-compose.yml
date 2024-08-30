@@ -1,0 +1,26 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./infra/php/Dockerfile
+    ports:
+      - 9000:9000
+    volumes:
+      - ./src:/data
+    networks:
+      - mynetwork
+
+  web:
+    build:
+      context: .
+      dockerfile: ./infra/nginx/Dockerfile
+      target: production
+    ports:
+      - 80:80
+    depends_on:
+      - app
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
