@@ -1,5 +1,5 @@
 <?php
-echo 'Hello PHP + Nginx';
+echo "Hello PHP + Nginx\r";
 
 echo "Server IP address\n\n";
 
